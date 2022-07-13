@@ -9,7 +9,8 @@ export const GET_CART_FAILURE = "GET_CART_FAILURE"
 export const getCart = (userID) => (dispatch) => {
     dispatch({type: GET_CART_START});
     axios
-        .get (`http://localhost:4000/carts/customers/${userID}`)
+        // .get (`http://localhost:4000/carts/customers/${userID}`)
+        .get (`https://store64-backend.herokuapp.com/carts/customers/${userID}`)
         .then((response)=> {
             dispatch({ type: GET_CART_SUCCESS, payload: response.data});
         })
@@ -21,7 +22,8 @@ export const getCart = (userID) => (dispatch) => {
 
 export const addProduct = item => {
     axios
-        .post (`http://localhost:4000/carts/customers/products`, {
+        // .post (`http://localhost:4000/carts/customers/products`, {
+        .post (`https://store64-backend.herokuapp.com/carts/customers/products`, {
             customerID: (sessionStorage.getItem("customerID")),
             productID: item.id,
             quantity: 1,
@@ -38,7 +40,8 @@ export const addProduct = item => {
 
 export const removeProduct = item => {
     axios
-        .delete (`http://localhost:4000/carts/customers/${sessionStorage.getItem("customerID")}/products/${item.id}`)
+        // .delete (`http://localhost:4000/carts/customers/${sessionStorage.getItem("customerID")}/products/${item.id}`)
+        .delete (`https://store64-backend.herokuapp.com/carts/customers/${sessionStorage.getItem("customerID")}/products/${item.id}`)
         .then((res)=> {
             console.log("was removed", res)
         })

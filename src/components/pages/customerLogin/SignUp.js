@@ -39,7 +39,8 @@ const SignUp = () => {
   const formSubmit = (e) => {
     e.preventDefault();
     console.log("form submitted!");
-    axios.post("http://localhost:4000/customers", formState)
+    // axios.post("http://localhost:4000/customers", formState)
+    axios.post("https://store64-backend.herokuapp.com/customers", formState)
     // .then(res => {setPost(res.data);
     .then(res => {console.log(res.data);
     setFormState({

@@ -22,7 +22,8 @@ const SellerLanding = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/sellers/1/products`)
+      // .get(`http://localhost:4000/sellers/1/products`)
+      .get(`https://store64-backend.herokuapp.com/sellers/1/products`)
       .then((response) => {
         setProducts(response.data);
       })
